@@ -1,0 +1,19 @@
+name: RagRerank
+
+control-plane:
+  port: 8000
+
+default-service: workflow
+
+services:
+  workflow:
+    name: Rag Rerank Workflow
+    source:
+      type: local
+      name: src
+    path: workflow:wf
+    python-dependencies:
+      - "llama-index-core"
+      - "llama-index-llms-openai"
+      - "llama-index-embeddings-openai"
+      - "llama-index-readers-file"
